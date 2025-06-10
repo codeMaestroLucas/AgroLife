@@ -1,0 +1,46 @@
+name: agro_life
+description: "A new Flutter project."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.7.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  fl_chart: ^0.71.0
+  flutter_svg: ^2.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/fonts/
+
+  fonts:
+    - family: FunnelDisplay
+      fonts:
+        - asset: assets/fonts/FunnelDisplay-VariableFont_wght.ttf
+
+    - family: Galada
+      fonts:
+        - asset: assets/fonts/Galada-Regular.ttf
+          weight: 700
+        
+    - family: Zain
+      fonts:
+        - asset: assets/fonts/Zain/Zain-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Zain/Zain-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Zain/Zain-Italic.ttf
+          weight: 400
+
