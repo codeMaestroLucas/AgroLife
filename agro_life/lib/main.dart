@@ -1,5 +1,5 @@
-import 'package:agro_life/screens/main_screen.dart';
-import 'package:agro_life/themes/app_colors.dart';
+import 'package:agro_life/my_constraints.dart';
+import 'package:agro_life/screens/nav_bar_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -11,13 +11,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Dashboard Responsive',
+      title: 'AgroLife',
       theme: ThemeData(
         brightness: Brightness.dark,
-        scaffoldBackgroundColor: AppColors.bg,
+        scaffoldBackgroundColor: colorBg,
       ),
       
-      home: const MainScreen(),
+      home: const NavBarScreen(),
     );
   }
 }

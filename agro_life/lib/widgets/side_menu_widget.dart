@@ -1,6 +1,6 @@
 import 'package:agro_life/data/side_menu.dart';
 import 'package:agro_life/models/menu_model.dart';
-import 'package:agro_life/themes/app_colors.dart';
+import 'package:agro_life/my_constraints.dart';
 import 'package:flutter/material.dart';
 
 class SideMenuWidget extends StatefulWidget {
@@ -18,7 +18,7 @@ class _SideMenuWidgetState extends State<SideMenuWidget> {
     final data = SideMenuData();
 
     return Container(
-      decoration: BoxDecoration(color: AppColors.bg),
+      decoration: BoxDecoration(color: colorBg),
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 80),
       
       child: ListView.builder(
@@ -35,7 +35,7 @@ class _SideMenuWidgetState extends State<SideMenuWidget> {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 4),
       decoration: BoxDecoration(
-        color: isSelected ? AppColors.selection : Colors.transparent,
+        color: isSelected ? colorSelection : Colors.transparent,
         borderRadius: BorderRadius.circular(8),
       ),
 
@@ -51,14 +51,14 @@ class _SideMenuWidgetState extends State<SideMenuWidget> {
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
               child: Icon(
                 item.icon,
-                color: isSelected ? AppColors.black : AppColors.secondary,
+                color: isSelected ? colorBlack : colorWhite,
               ),
             ),
             
             Text(
               item.title,
               style: TextStyle(
-                color: isSelected ? AppColors.black : AppColors.secondary,
+                color: isSelected ? colorBlack : colorWhite,
               ),
             ),
           ],

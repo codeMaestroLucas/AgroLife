@@ -1,4 +1,4 @@
-import 'package:agro_life/themes/app_colors.dart';
+import 'package:agro_life/my_constraints.dart';
 import 'package:flutter/material.dart';
 
 class CustomCard extends StatelessWidget {
@@ -11,11 +11,11 @@ class CustomCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(color: color ?? AppColors.cardBg),
+      decoration: BoxDecoration(color: color ?? colorCardBg),
 
       child: Padding(
         padding: padding ?? const EdgeInsets.all(12),
-        
+
         child: child,
       ),
     );

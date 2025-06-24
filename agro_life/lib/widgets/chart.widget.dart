@@ -2,8 +2,8 @@ import 'package:agro_life/data/pie_chart_data.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
-class Chart extends StatelessWidget {
-  const Chart({super.key});
+class MyPieChart extends StatelessWidget {
+  const MyPieChart({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,16 +26,14 @@ class Chart extends StatelessWidget {
           Positioned.fill(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              
+
               children: [
                 const Text(
                   '70%',
                   style: TextStyle(fontSize: 32, fontWeight: FontWeight.w600),
                 ),
 
-                const Text(
-                  'of 100%',
-                ),
+                const Text('of 100%'),
               ],
             ),
           ),

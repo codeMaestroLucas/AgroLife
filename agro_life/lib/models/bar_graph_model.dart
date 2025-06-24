@@ -5,6 +5,11 @@ class BarGraphModel {
   final String label;
   final Color color;
   final List<GraphModel> graph;
+  List<String> bottomLabels = ['Jan', 'Apr', 'Jul', 'Oct', 'Dec'];
 
-  const BarGraphModel({required this.label, required this.color, required this.graph});
+  BarGraphModel({
+    required this.label,
+    required this.color,
+    required this.graph,
+  });
 }

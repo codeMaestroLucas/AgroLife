@@ -1,5 +1,6 @@
-import 'package:agro_life/themes/app_colors.dart';
+import 'package:agro_life/constraints.dart';
 import 'package:agro_life/util/responsive.dart';
+import 'package:agro_life/widgets/agrolife_title_widget.dart';
 import 'package:flutter/material.dart';
 
 class HeaderWidget extends StatelessWidget {
@@ -9,20 +10,26 @@ class HeaderWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
       children: [
         if (!Responsive.isDesktop(context))
-          Padding(    
-            padding: const EdgeInsets.only(right: 20),
-            child: InkWell(
-              onTap: () => Scaffold.of(context).openDrawer(),
-              child: Padding(
-                padding: const EdgeInsets.all(4.0),
-                child: Icon(Icons.menu, color: Colors.grey, size: 25),
-              ),
-            ),
+          Row(
+            children: [
+              if (!Responsive.isMobile(context))
+                Padding(
+                  padding: const EdgeInsets.only(right: 20),
+                  child: InkWell(
+                    onTap: () => Scaffold.of(context).openDrawer(),
+                    child: Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Icon(Icons.menu, color: Colors.grey, size: 25),
+                    ),
+                  ),
+                ),
+
+              AgroLifeTitle(),
+            ],
           ),
-          
+
         Responsive.isMobile(context)
             ? Row(
               children: [
@@ -30,11 +37,15 @@ class HeaderWidget extends StatelessWidget {
                   onPressed: () {},
                   icon: Icon(Icons.search, color: Colors.grey, size: 25),
                 ),
+
                 InkWell(
                   onTap: Scaffold.of(context).openEndDrawer,
                   child: CircleAvatar(
                     backgroundColor: Colors.transparent,
-                    child: Image.asset('assets/images/images/avatar.png', width: 32),
+                    child: Image.asset(
+                      'assets/images/images/avatar.png',
+                      width: 32,
+                    ),
                   ),
                 ),
               ],
@@ -43,7 +54,7 @@ class HeaderWidget extends StatelessWidget {
               child: TextField(
                 decoration: InputDecoration(
                   filled: true,
-                  fillColor: AppColors.cardBg,
+                  fillColor: colorCardBg,
                   enabledBorder: const OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.transparent),
                   ),
