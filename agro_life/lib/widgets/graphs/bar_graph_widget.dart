@@ -90,7 +90,7 @@ class BarGraphWidget extends StatelessWidget {
           BarChartRodData(
             toY: point.y,
             width: 14,
-            color: color.withOpacity(0.8),
+            color: color.withValues(alpha: 0.8),
             borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(2),
               topRight: Radius.circular(2),

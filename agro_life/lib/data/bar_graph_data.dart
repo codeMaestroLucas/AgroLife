@@ -18,12 +18,12 @@ class BarGraphData {
     BarGraphModel(
       label: '',
       color: colorYellow,
-      graph: _generateRandomValues(5), // Generate exactly 5 values
+      graph: _generateRandomValues(5),
     ),
     BarGraphModel(
       label: '',
-      color: colorBlue,
-      graph: _generateRandomValues(5), // Generate exactly 5 values
+      color: colorGreen,
+      graph: _generateRandomValues(5),
     ),
   ];
 }

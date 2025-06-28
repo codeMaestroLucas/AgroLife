@@ -1,7 +1,7 @@
 import 'package:agro_life/my_constraints.dart';
-import 'package:agro_life/widgets/chart.widget.dart';
-import 'package:agro_life/widgets/schedule_widget.dart';
-import 'package:agro_life/widgets/summary_details_widget.dart';
+import 'package:agro_life/screens/home/widgets/side_menu/summary_details_widget.dart';
+import 'package:agro_life/screens/home/widgets/side_menu/week_objectives_widget.dart';
+import 'package:agro_life/widgets/graphs/pie_chart.widget.dart';
 import 'package:flutter/material.dart';
 
 class SummaryWidget extends StatelessWidget {
@@ -19,19 +19,15 @@ class SummaryWidget extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(height: 20),
+              SizedBox(height: 30),
               MyPieChart(),
 
-              Text(
-                'Summary',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-              ),
+              const Text('Resumo Mensal', style: txtHeading3),
+              SizedBox(height: 8),
+              MonthSummary(),
 
-              SizedBox(height: 16),
-              SummaryDetailsWidget(),
-
-              SizedBox(height: 40),
-              ScheduleWidget(),
+              SizedBox(height: spaceBetweenElements),
+              WeekObjectives(),
             ],
           ),
         ),

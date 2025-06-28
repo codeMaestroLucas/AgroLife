@@ -1,4 +1,6 @@
 # Miscellaneous
+key.properties
+upload-keystore.jks
 *.class
 *.log
 *.pyc

@@ -1,7 +1,7 @@
 import 'package:agro_life/util/responsive.dart';
-import 'package:agro_life/widgets/dash_board_widget.dart';
-import 'package:agro_life/widgets/side_menu_widget.dart';
-import 'package:agro_life/widgets/summary_widget.dart';
+import 'package:agro_life/screens/home/widgets/dash_board_widget.dart';
+import 'package:agro_life/screens/home/widgets/side_menu/side_menu_widget.dart';
+import 'package:agro_life/screens/home/widgets/side_menu/summary_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {

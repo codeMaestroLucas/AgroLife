@@ -1,9 +1,10 @@
 import 'package:agro_life/data/schedule_data.dart';
+import 'package:agro_life/my_constraints.dart';
 import 'package:agro_life/widgets/custom_card_widget.dart';
 import 'package:flutter/material.dart';
 
-class ScheduleWidget extends StatelessWidget {
-  const ScheduleWidget({super.key});
+class WeekObjectives extends StatelessWidget {
+  const WeekObjectives({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,24 +12,25 @@ class ScheduleWidget extends StatelessWidget {
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
+      spacing: 8,
 
       children: [
         const Text(
-          'Scheduled',
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+          'Objetivos Semanais',
+          style: txtHeading3,
         ),
-
-        const SizedBox(height: 12),
 
         for (var index = 0; index < data.schedules.length; index++)
           CustomCard(
-            color: Colors.black,
+            color: const Color(0xFF232323),
+
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
               children: [
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
 
                   children: [
                     Text(
@@ -50,11 +52,13 @@ class ScheduleWidget extends StatelessWidget {
                     ),
                   ],
                 ),
-                
+
                 const Icon(Icons.more),
               ],
             ),
           ),
+
+        const SizedBox(height: 32),
       ],
     );
   }

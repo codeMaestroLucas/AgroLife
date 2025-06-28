@@ -1,8 +1,8 @@
 import 'package:agro_life/data/nav_bar_icon_data.dart';
 import 'package:agro_life/my_constraints.dart';
-import 'package:agro_life/screens/camera_screen.dart';
-import 'package:agro_life/screens/home_screen.dart';
-import 'package:agro_life/screens/medice_screen.dart';
+import 'package:agro_life/screens/camera/camera_screen.dart';
+import 'package:agro_life/screens/home/home_screen.dart';
+import 'package:agro_life/screens/management/management_screen.dart';
 import 'package:agro_life/widgets/nav_bar_icon_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -16,14 +16,14 @@ class NavBarScreen extends StatefulWidget {
 class _NavBarScreenState extends State<NavBarScreen> {
   int currentIndex = 1; // Home screen selected.
 
-  final screens = const [MediceScreen(), HomeScreen(), CameraScreen()];
+  final screens = [ManagementScreen(), HomeScreen(), CameraScreen()];
 
   @override
   Widget build(BuildContext context) {
     final bool isCameraScreen = currentIndex == 2;
 
     return Scaffold(
-      // ✅ Only show FAB when not on camera
+      // Only show FAB when not on camera
       floatingActionButton:
           isCameraScreen
               ? null
@@ -44,7 +44,7 @@ class _NavBarScreenState extends State<NavBarScreen> {
 
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
 
-      // ✅ Only show BottomAppBar when not on camera
+      // Only show BottomAppBar when not on camera
       bottomNavigationBar:
           isCameraScreen
               ? null
