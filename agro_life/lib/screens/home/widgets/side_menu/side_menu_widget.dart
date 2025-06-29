@@ -29,6 +29,7 @@ class _SideMenuWidgetState extends State<SideMenuWidget> {
     );
   }
 
+
   Widget buildMenuEntry(MenuModel item, int index) {
     final bool isSelected = currentItem == index;
 

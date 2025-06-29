@@ -33,10 +33,11 @@ const colorPrimary = Color(0xFF289DCB);
 const colorContent = Color(0xFF040F0F);
 const colorLabel = Color(0xFF8F8E8E);
 
-const colorDarkGreen = Color(0xFF1C6785);
+const colorDarkBlue = Color(0xFF1C6785);
 const colorYellow = Color(0Xffffcf26);
 const colorRed = Color(0xFFEE2727);
 const colorGreen = Color(0xFF3AC71A);
+const colorGrey = Color(0xFFBDBDBD);
 
 // TEXTS
 const TextStyle txtHeading1 = TextStyle(

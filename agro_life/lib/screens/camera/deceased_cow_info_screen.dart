@@ -17,7 +17,7 @@ class DeceasedCowInfoScreen extends StatelessWidget {
 
           child: Column(
             children: [
-              Icon(Icons.warning, size: 80, color: Colors.red),
+              Icon(Icons.warning, size: 100, color: Colors.red),
               SizedBox(height: 10),
               Text(
                 'Foi identificado um ferimento no casco.\n\nA causa pode estar relacionada a infecções, má higiene ou manejo inadequado.\nRecomenda-se inspeção no rebanho, melhoria nas condições do solo e nos cuidados com os cascos para evitar novos casos.',

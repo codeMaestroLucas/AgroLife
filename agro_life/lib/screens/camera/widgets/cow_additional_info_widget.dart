@@ -1,5 +1,5 @@
 import 'package:agro_life/models/cow_model.dart';
-import 'package:agro_life/screens/camera/widgets/field_label_widget.dart';
+import 'package:agro_life/widgets/field_label_widget.dart';
 import 'package:agro_life/widgets/custom_card_widget.dart';
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';

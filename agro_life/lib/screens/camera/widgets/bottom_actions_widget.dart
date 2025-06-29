@@ -72,7 +72,7 @@ class _BottomActionsWidgetState extends State<BottomActionsWidget> {
             height: 64,
             width: 170,
             decoration: BoxDecoration(
-              color: colorDarkGreen,
+              color: colorDarkBlue,
               borderRadius: BorderRadius.circular(10),
             ),
             child: Center(child: Text('Movimentação', style: txtHeading3)),

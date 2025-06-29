@@ -1,3 +1,4 @@
+import 'package:agro_life/my_constraints.dart';
 import 'package:flutter/material.dart';
 
 class AgroLifeTitle extends StatelessWidget {
@@ -7,7 +8,7 @@ class AgroLifeTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return RichText(
       text: TextSpan(
-        style: TextStyle(fontFamily: 'Galada', fontSize: 32),
+        style: TextStyle(fontFamily: 'Galada', fontSize: 32, color: colorWhite),
         children: [
           TextSpan(text: "Agro"),
           TextSpan(

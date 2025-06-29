@@ -28,8 +28,7 @@ class _QRCodeDetailsScreenState extends State<QRCodeDetailsScreen> {
           // Background image covering the top part
           Image.asset(
             'assets/images/green_field.jpg',
-            height: 200,
-            fit: BoxFit.cover,
+            fit: BoxFit.fitWidth,
           ),
 
           // Main content column

@@ -12,6 +12,8 @@ class MedWidget extends StatelessWidget {
     return CustomCard(
       padding: const EdgeInsets.all(16.0),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        
         children: [
           Row(
             children: [
@@ -67,7 +69,7 @@ class MedWidget extends StatelessWidget {
                         vertical: 4,
                       ),
                       decoration: BoxDecoration(
-                        color: colorPrimary,
+                        color: colorDarkBlue,
                         borderRadius: BorderRadius.circular(8),
                       ),
 
@@ -89,11 +91,9 @@ class MedWidget extends StatelessWidget {
           // Description
           const SizedBox(height: 8),
           Text(
+            textAlign: TextAlign.start,
             med.description,
-            style: const TextStyle(
-              fontSize: 12,
-              color: Color.fromARGB(255, 189, 189, 189),
-            ),
+            style: const TextStyle(fontSize: 12, color: colorGrey),
             maxLines: 4,
             overflow: TextOverflow.ellipsis,
           ),

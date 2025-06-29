@@ -93,12 +93,17 @@ class _ChangeCowLocationWidgetState extends State<ChangeCowLocationWidget> {
           onPressed: () {
             final selectedLot = _currentSelectedLocation;
 
-            // Show a success message
-            showAppSnackBar(context, 'Localização atualizada!');
-
+            if (widget.cow.isDeceased) {
+              // Show a success message
+              showAppSnackBar(context, 'Movimentação Negada!');
+            } else if (!widget.cow.isDeceased) {
+              // Show a success message
+              showAppSnackBar(context, 'Localização atualizada!');
+            }
             // Pop the dialog, returning the modified cow object
             Navigator.of(context).pop(selectedLot);
           },
+
           child: const Text('Salvar', style: TextStyle(color: Colors.blue)),
         ),
       ],

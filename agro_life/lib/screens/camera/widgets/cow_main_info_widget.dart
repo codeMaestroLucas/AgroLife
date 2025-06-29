@@ -1,6 +1,6 @@
 import 'package:agro_life/models/cow_model.dart';
 import 'package:agro_life/my_constraints.dart';
-import 'package:agro_life/screens/camera/widgets/field_label_widget.dart';
+import 'package:agro_life/widgets/field_label_widget.dart';
 import 'package:flutter/material.dart';
 
 class CowMainInfoWidget extends StatelessWidget {
