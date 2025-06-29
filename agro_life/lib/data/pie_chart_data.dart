@@ -2,7 +2,7 @@ import 'package:agro_life/my_constraints.dart';
 import 'package:fl_chart/fl_chart.dart';
 
 class MyPieChartData {
-  final pieChartSectionDatas = [
+  List<PieChartSectionData> get pieChartSectionDatas => [
     PieChartSectionData(
       color: colorPrimary,
       value: 24,

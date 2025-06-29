@@ -102,7 +102,7 @@ class ManagementScreen extends StatelessWidget {
     } else if (Responsive.isTablet(context)) {
       _height = max(750, MediaQuery.of(context).size.width - 100);
     } else {
-      _height = min(950, MediaQuery.of(context).size.width - 100);
+      _height = max(650, MediaQuery.of(context).size.width - 800);
     }
 
     return _height;

@@ -1,5 +1,7 @@
 import 'package:agro_life/my_constraints.dart';
+import 'package:agro_life/screens/home/home_screen.dart';
 import 'package:agro_life/screens/nav_bar_screen.dart';
+import 'package:agro_life/util/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -9,12 +11,12 @@ void main() async {
     // Locked on portrait mode
     DeviceOrientation.portraitUp,
   ]);
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -25,7 +27,18 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: colorBg,
       ),
       
-      home: const NavBarScreen(),
+      home: Builder(
+        builder: (context) {
+          if (Responsive.isDesktop(context)) {
+            return HomeScreen(currentItem: 1, onItemSelected: _noop);
+          } else {
+            return const NavBarScreen();
+          }
+        },
+      ),
     );
   }
+
+  // Fallback handler to pass in desktop mode
+  static void _noop(int _) {}
 }

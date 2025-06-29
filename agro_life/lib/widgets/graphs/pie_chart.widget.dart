@@ -7,7 +7,7 @@ class MyPieChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final pieChartData = MyPieChartData();
+    final pieChartData = MyPieChartData().pieChartSectionDatas;
 
     return SizedBox(
       height: 200,
@@ -19,7 +19,7 @@ class MyPieChart extends StatelessWidget {
               sectionsSpace: 0,
               centerSpaceRadius: 70,
               startDegreeOffset: -90,
-              sections: pieChartData.pieChartSectionDatas,
+              sections: pieChartData,
             ),
           ),
 

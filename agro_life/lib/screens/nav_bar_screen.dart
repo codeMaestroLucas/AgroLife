@@ -3,7 +3,6 @@ import 'package:agro_life/my_constraints.dart';
 import 'package:agro_life/screens/camera/camera_screen.dart';
 import 'package:agro_life/screens/home/home_screen.dart';
 import 'package:agro_life/screens/management/management_screen.dart';
-import 'package:agro_life/util/responsive.dart';
 import 'package:agro_life/widgets/nav_bar_icon_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -26,7 +25,10 @@ class _NavBarScreenState extends State<NavBarScreen> {
         currentSlide: currentSlide,
       );
     } else if (currentIndex == 1) {
-      return const HomeScreen();
+      return HomeScreen(
+        currentItem: currentIndex,
+        onItemSelected: (index) => setState(() => currentIndex = index),
+      );
     } else {
       return const CameraScreen();
     }
@@ -57,10 +59,7 @@ class _NavBarScreenState extends State<NavBarScreen> {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => const CameraScreen()),
-            ).then((_) {
-              // Optional: If you want to reset currentIndex after popping CameraScreen
-              // setState(() { currentIndex = 1; }); // Go back to home after camera
-            });
+            ).then((_) {});
           } else {
             setState(() => currentIndex = index);
           }
@@ -69,61 +68,45 @@ class _NavBarScreenState extends State<NavBarScreen> {
     ];
   }
 
-  // Helper method to generate the responsive layout
-  Widget _generateResponsiveLayout(BuildContext context) {
-    final bool isCameraScreen = currentIndex == 2; // Define here
-
-    if (Responsive.isDesktop(context)) {
-      return const Scaffold(
-        body: Row(
-          children: [
-            // Expanded(child: child)
-          ],
-        ),
-      );
-    } else {
-      return Scaffold(
-        floatingActionButton:
-            isCameraScreen
-                ? null // No FAB if camera screen is active
-                : FloatingActionButton(
-                  onPressed: () {
-                    setState(() {
-                      currentIndex = 1; // Go to Home
-                    });
-                  },
-                  backgroundColor: colorDarkBlue,
-                  shape: const CircleBorder(),
-                  child: Icon(
-                    Icons.home_rounded,
-                    size: sizeIcon + 4,
-                    color: colorWhite,
-                  ),
-                ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        bottomNavigationBar:
-            isCameraScreen
-                ? null // No BottomAppBar if camera screen is active
-                : BottomAppBar(
-                  elevation: 1,
-                  height: 60,
-                  color: colorBottomAppBarBg,
-                  shape: const CircularNotchedRectangle(),
-                  notchMargin: 10,
-                  clipBehavior: Clip.antiAliasWithSaveLayer,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: _generateNavIcons(),
-                  ),
-                ),
-
-        body: _getCurrentScreen(),
-      );
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
-    return _generateResponsiveLayout(context);
+    bool isCameraScreen = currentIndex == 2;
+    return Scaffold(
+      floatingActionButton:
+          isCameraScreen
+              ? null // No FAB if camera screen is active
+              : FloatingActionButton(
+                onPressed: () {
+                  setState(() {
+                    currentIndex = 1; // Go to Home
+                  });
+                },
+                backgroundColor: colorDarkBlue,
+                shape: const CircleBorder(),
+                child: Icon(
+                  Icons.home_rounded,
+                  size: sizeIcon + 4,
+                  color: colorWhite,
+                ),
+              ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar:
+          isCameraScreen
+              ? null // No BottomAppBar if camera screen is active
+              : BottomAppBar(
+                elevation: 1,
+                height: 60,
+                color: colorBottomAppBarBg,
+                shape: const CircularNotchedRectangle(),
+                notchMargin: 10,
+                clipBehavior: Clip.antiAliasWithSaveLayer,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: _generateNavIcons(),
+                ),
+              ),
+
+      body: _getCurrentScreen(),
+    );
   }
 }

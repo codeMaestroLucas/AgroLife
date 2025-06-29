@@ -1,17 +1,29 @@
 import 'package:agro_life/data/side_menu.dart';
-import 'package:agro_life/models/menu_model.dart';
 import 'package:agro_life/my_constraints.dart';
 import 'package:flutter/material.dart';
 
 class SideMenuWidget extends StatefulWidget {
-  const SideMenuWidget({super.key});
+  final int currentItem;
+  final ValueChanged<int> onItemSelected;
+
+  const SideMenuWidget({
+    super.key,
+    required this.currentItem,
+    required this.onItemSelected,
+  });
 
   @override
   State<SideMenuWidget> createState() => _SideMenuWidgetState();
 }
 
 class _SideMenuWidgetState extends State<SideMenuWidget> {
-  int currentItem = 0;
+  late int selectedIndex;
+
+  @override
+  void initState() {
+    super.initState();
+    selectedIndex = widget.currentItem;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,51 +31,48 @@ class _SideMenuWidgetState extends State<SideMenuWidget> {
 
     return Container(
       decoration: BoxDecoration(color: colorBg),
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 80),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 80),
       
       child: ListView.builder(
         itemCount: data.menu.length,
-        itemBuilder:
-            (context, index) => buildMenuEntry(data.menu[index], index),
-      ),
-    );
-  }
+        itemBuilder: (context, index) {
+          final item = data.menu[index];
+          final bool isSelected = selectedIndex == index;
 
-
-  Widget buildMenuEntry(MenuModel item, int index) {
-    final bool isSelected = currentItem == index;
-
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 4),
-      decoration: BoxDecoration(
-        color: isSelected ? colorSelection : Colors.transparent,
-        borderRadius: BorderRadius.circular(8),
-      ),
-
-      child: InkWell(
-        onTap:
-            () => setState(() {
-              currentItem = index;
-            }),
-
-        child: Row(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-              child: Icon(
-                item.icon,
-                color: isSelected ? colorBlack : colorWhite,
-              ),
+          return Container(
+            margin: const EdgeInsets.symmetric(vertical: 4),
+            decoration: BoxDecoration(
+              color: isSelected ? colorSelection : Colors.transparent,
+              borderRadius: BorderRadius.circular(8),
             ),
             
-            Text(
-              item.title,
-              style: TextStyle(
-                color: isSelected ? colorBlack : colorWhite,
+            child: InkWell(
+              onTap: () {
+                setState(() {
+                  selectedIndex = index;
+                });
+                widget.onItemSelected(index);
+              },
+              child: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                    child: Icon(
+                      item.icon,
+                      color: isSelected ? colorBlack : colorWhite,
+                    ),
+                  ),
+                  Text(
+                    item.title,
+                    style: TextStyle(
+                      color: isSelected ? colorBlack : colorWhite,
+                    ),
+                  ),
+                ],
               ),
             ),
-          ],
-        ),
+          );
+        },
       ),
     );
   }

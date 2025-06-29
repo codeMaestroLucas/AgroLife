@@ -27,6 +27,7 @@ class HeaderWidget extends StatelessWidget {
                 ),
 
               AgroLifeTitle(),
+              const SizedBox(width: 12),
             ],
           ),
 
@@ -42,10 +43,7 @@ class HeaderWidget extends StatelessWidget {
                   onTap: Scaffold.of(context).openEndDrawer,
                   child: CircleAvatar(
                     backgroundColor: Colors.transparent,
-                    child: Image.asset(
-                      'assets/images/avatar.png',
-                      width: 32,
-                    ),
+                    child: Image.asset('assets/images/avatar.png', width: 32),
                   ),
                 ),
               ],
